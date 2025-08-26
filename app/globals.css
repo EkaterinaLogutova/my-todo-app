@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todo-title {
+  font-size: 2rem; 
+  font-weight: bold; 
+  margin-bottom: 20px; 
+}
+
+.todo-item {
+  margin-bottom: 12px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trash-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.trash-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid #999;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+.custom-checkbox:checked {
+  background-color: #ffffff00;
+  border-color: #4caf50;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.add-task-container {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  font-style: italic;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.add-task-button {
+  font-style: normal;
+}
+
+.add-task-input {
+  flex-grow: 1;
+  display: flex;
+  padding-left: 20px;
+}
+
+.active-count {
+  margin-top: 15px;
+  margin-left: 10px;
+}
