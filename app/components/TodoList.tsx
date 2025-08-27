@@ -9,11 +9,13 @@ interface TodoListProps {
   initialTodos: Todo[];
 }
 
+type FilterType = 'All' | 'Active' | 'Completed';
+
 export default function TodoList({ initialTodos }: TodoListProps) { 
 
     const [todos, setTodos] = useState<Todo[]>([]);
     const [newTaskTitle, setNewTaskTitle] = useState('');
-    const [filter, setFilter] = useState<'All' | 'Active' | 'Completed'>('All');
+    
 
     useEffect(() => {
 
@@ -65,11 +67,23 @@ export default function TodoList({ initialTodos }: TodoListProps) {
         setTodos(updated);
     };
 
+    const [filter, setFilter] = useState<FilterType>('All');
+
+    const FILTER_MAP = {
+        All: (todo: Todo) => true,
+        Active: (todo: Todo) => !todo.completed,
+        Completed: (todo: Todo) => todo.completed,
+    };
+
+    const filteredTodos = todos.filter(FILTER_MAP[filter]);
 
     return (
         <div>
+
+            <TodoFilter filter={filter} setFilter={setFilter} />
+
             <ul>
-                {todos.map(todo => (
+                {filteredTodos.map(todo => (
                     <TodoItem
                     key={todo.id}
                     todo={todo}
@@ -78,6 +92,7 @@ export default function TodoList({ initialTodos }: TodoListProps) {
                     />
                 ))}
             </ul>
+            
 
             <div className="add-task-container">
                     <input

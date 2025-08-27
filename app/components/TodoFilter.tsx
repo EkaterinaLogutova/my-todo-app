@@ -2,12 +2,14 @@
 
 import React from 'react';
 
+type FilterType = 'All' | 'Active' | 'Completed';
+
 interface TodoFilterProps {
-  filter: string;
-  setFilter: (filter: string) => void;
+    filter: FilterType;
+    setFilter: React.Dispatch<React.SetStateAction<FilterType>>;
 }
 
-const FILTER_NAMES = ['All', 'Active', 'Completed'];
+const FILTER_NAMES: FilterType[] = ['All', 'Active', 'Completed'];
 
 export default function TodoFilter({ filter, setFilter }: TodoFilterProps) {
   return (
@@ -16,7 +18,7 @@ export default function TodoFilter({ filter, setFilter }: TodoFilterProps) {
         <button
           key={name}
           onClick={() => setFilter(name)}
-          disabled={filter === name}
+          className={filter === name ? 'active filter-buttons' : 'filter-buttons'}
         >
           {name}
         </button>
