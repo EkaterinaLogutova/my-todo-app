@@ -26,14 +26,14 @@ body {
 }
 
 .todo-title {
-  font-size: 2rem; 
-  font-weight: bold; 
-  margin-bottom: 5px; 
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
   margin-left: 5px;
 }
 
 .todo-item {
-  margin-bottom: 12px; 
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;

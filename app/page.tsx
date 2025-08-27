@@ -1,4 +1,4 @@
-import TodoList from './components/TodoList';
+import TodoList from "./components/TodoList";
 
 export interface Todo {
   id: number | string;
@@ -7,7 +7,10 @@ export interface Todo {
 }
 
 async function getTodos(): Promise<Todo[]> {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5', { cache: 'no-store' });
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5",
+    { cache: "no-store" },
+  );
   return res.json();
 }
 
