@@ -2,6 +2,8 @@
 
 import React from "react";
 import type { Todo } from "../page";
+import styles from './TodoItem.module.scss';
+
 
 interface TodoItemProps {
   todo: Todo;
@@ -14,7 +16,7 @@ export default function TodoItem({
   deleteTask,
 }: TodoItemProps) {
   return (
-    <li className="todo-item">
+    <li className={styles.todoItem}>
       <label
         style={{
           display: "flex",
@@ -27,7 +29,7 @@ export default function TodoItem({
           type="checkbox"
           checked={todo.completed}
           onChange={() => toggleCompleted(todo.id)}
-          className="custom-checkbox"
+          className={styles.customCheckbox}
         />
         <span>{todo.title}</span>
       </label>

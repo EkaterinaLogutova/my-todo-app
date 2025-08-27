@@ -4,6 +4,8 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import type { Todo } from "../page";
 import TodoFilter from "./TodoFilter";
 import TodoItem from "./TodoItem";
+import styles from './TodoList.module.scss';
+
 
 interface TodoListProps {
   initialTodos: Todo[];
@@ -93,20 +95,20 @@ export default function TodoList({ initialTodos }: TodoListProps) {
         ))}
       </ul>
 
-      <div className="add-task-container">
+      <div className={styles.addTaskContainer}>
         <input
           type="text"
           placeholder="Новая задача"
           value={newTaskTitle}
           onChange={handleInputChange}
-          className="add-task-input"
+          className={styles.addTaskInput}
         />
-        <button className="add-task-button" onClick={handleAddTask}>
+        <button className={styles.addTaskButton} onClick={handleAddTask}>
           Добавить
         </button>
       </div>
 
-      <div className="active-count">
+      <div className={styles.activeCount}>
         Активных задач: {todos.filter((todo) => !todo.completed).length}
       </div>
     </div>

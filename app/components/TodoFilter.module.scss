@@ -1,0 +1,22 @@
+.filterButtons {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: 1px solid rgb(11, 11, 11);
+  background: rgb(102, 102, 102);
+  cursor: pointer;
+  border: 30px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.filterButtonsActive {
+  background: rgba(91, 91, 250, 0.734);
+  color: white;
+  border-color: blue;
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}

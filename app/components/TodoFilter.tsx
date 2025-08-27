@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import styles from './TodoFilter.module.scss';
 
 type FilterType = "All" | "Active" | "Completed";
 
@@ -19,7 +20,7 @@ export default function TodoFilter({ filter, setFilter }: TodoFilterProps) {
           key={name}
           onClick={() => setFilter(name)}
           className={
-            filter === name ? "active filter-buttons" : "filter-buttons"
+            filter === name ? styles.filterButtonsActive : styles.filterButtons
           }
         >
           {name}
